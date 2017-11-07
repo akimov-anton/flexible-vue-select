@@ -75,6 +75,10 @@ $shadow : 0 2px 4px 0 rgba(124,126,167,.3);
     visibility: hidden;
     z-index: -10;
   }
+  
+  &__options-wraped {
+    position: relative;
+  }
 }
 
 .stf-select_sm {
