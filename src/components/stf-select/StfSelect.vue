@@ -1,6 +1,6 @@
 <script>
 import { eventHub } from './even-hub.js';
-import { getOffset, hasPositioFixedAncestor, isMob, addClass } from './dom-lib';
+import { hasPositioFixedAncestor, isMob, addClass } from './dom-lib';
 import throttle from 'lodash.throttle';
 
 export default {
@@ -86,7 +86,9 @@ export default {
       '.stf-select__options-wraped'
     );
     this.__selectOptionsEl = this.$el.querySelector('.stf-select__options');
-    document.body.appendChild(this.__selectOptionsWrapEl);
+//    document.body.appendChild(this.__selectOptionsWrapEl);
+    let wrapper = this.$el.querySelector('.stf-select__inner-wrapper');
+    wrapper.appendChild(this.__selectOptionsWrapEl);
     this.__selectContainerEl = this.$el.querySelector('.stf-select__container');
 
     this._addwidowResizeListener();
@@ -215,61 +217,61 @@ export default {
     loadMore: throttle(loadMore, 100),
 
     _calculatePositionAnsSize() {
-      if (!this.isOpened) {
-        return;
-      }
-
-      const optionsHeight =
-        (this.__selectOptionsEl &&
-          this.__selectOptionsEl.getBoundingClientRect &&
-          this.__selectOptionsEl.getBoundingClientRect().height) ||
-        0;
-      const containerOffset = getOffset(this.__selectContainerEl);
-
-      if (
-        (window.innerHeight ||
-          document.documentElement.clientHeight ||
-          document.body.clientHeight) +
-          window.pageYOffset >
-        containerOffset.top +
-          this.__selectContainerEl.clientHeight +
-          optionsHeight
-      ) {
-        this.hasAncesroFixed = hasPositioFixedAncestor(this.$el);
-        this.__selectOptionsEl.style.position = this.hasAncesroFixed
-          ? 'fixed'
-          : 'absolute';
-        this.__selectOptionsEl.style.top =
-          containerOffset.top +
-          this.__selectContainerEl.offsetHeight -
-          (this.hasAncesroFixed ? window.pageYOffset : 0) +
-          'px';
-        this.__selectOptionsEl.style.left =
-          containerOffset.left -
-          (this.hasAncesroFixed ? window.pageXOffset : 0) +
-          'px';
-        this.__selectOptionsEl.style.width =
-          this.__selectContainerEl.offsetWidth + 'px';
-      } else {
-        this.hasAncesroFixed = hasPositioFixedAncestor(this.$el);
-        this.__selectOptionsEl.style.position = this.hasAncesroFixed
-          ? 'fixed'
-          : 'absolute';
-        this.__selectOptionsEl.style.top =
-          containerOffset.top -
-          this.__selectContainerEl.clientHeight -
-          1 -
-          (this.hasAncesroFixed ? window.pageYOffset : 0) -
-          optionsHeight +
-          this.__selectContainerEl.offsetHeight +
-          'px';
-        this.__selectOptionsEl.style.left =
-          containerOffset.left -
-          (this.hasAncesroFixed ? window.pageXOffset : 0) +
-          'px';
-        this.__selectOptionsEl.style.width =
-          this.__selectContainerEl.offsetWidth + 'px';
-      }
+//      if (!this.isOpened) {
+//        return;
+//      }
+//
+//      const optionsHeight =
+//        (this.__selectOptionsEl &&
+//          this.__selectOptionsEl.getBoundingClientRect &&
+//          this.__selectOptionsEl.getBoundingClientRect().height) ||
+//        0;
+//      const containerOffset = getOffset(this.__selectContainerEl);
+//
+//      if (
+//        (window.innerHeight ||
+//          document.documentElement.clientHeight ||
+//          document.body.clientHeight) +
+//          window.pageYOffset >
+//        containerOffset.top +
+//          this.__selectContainerEl.clientHeight +
+//          optionsHeight
+//      ) {
+//        this.hasAncesroFixed = hasPositioFixedAncestor(this.$el);
+//        this.__selectOptionsEl.style.position = this.hasAncesroFixed
+//          ? 'fixed'
+//          : 'absolute';
+//        this.__selectOptionsEl.style.top =
+//          containerOffset.top +
+//          this.__selectContainerEl.offsetHeight -
+//          (this.hasAncesroFixed ? window.pageYOffset : 0) +
+//          'px';
+//        this.__selectOptionsEl.style.left =
+//          containerOffset.left -
+//          (this.hasAncesroFixed ? window.pageXOffset : 0) +
+//          'px';
+//        this.__selectOptionsEl.style.width =
+//          this.__selectContainerEl.offsetWidth + 'px';
+//      } else {
+//        this.hasAncesroFixed = hasPositioFixedAncestor(this.$el);
+//        this.__selectOptionsEl.style.position = this.hasAncesroFixed
+//          ? 'fixed'
+//          : 'absolute';
+//        this.__selectOptionsEl.style.top =
+//          containerOffset.top -
+//          this.__selectContainerEl.clientHeight -
+//          1 -
+//          (this.hasAncesroFixed ? window.pageYOffset : 0) -
+//          optionsHeight +
+//          this.__selectContainerEl.offsetHeight +
+//          'px';
+//        this.__selectOptionsEl.style.left =
+//          containerOffset.left -
+//          (this.hasAncesroFixed ? window.pageXOffset : 0) +
+//          'px';
+//        this.__selectOptionsEl.style.width =
+//          this.__selectContainerEl.offsetWidth + 'px';
+//      }
     },
 
     _addwidowResizeListener() {
