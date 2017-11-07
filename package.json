@@ -1,8 +1,8 @@
 {
-  "name": "stf-vue-select",
+  "name": "flexible-vue-select",
   "version": "0.1.8",
   "description": "A Vue.js project",
-  "author": "Andriy Syagrovskiy",
+  "author": "Anton Akimov",
   "main": "dist/lib/stf-vue-select.min.js",
   "private": false,
   "license": "MIT",
