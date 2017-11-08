@@ -1,6 +1,6 @@
 {
   "name": "flexible-vue-select",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "A Vue.js project",
   "author": "Anton Akimov",
   "main": "dist/lib/stf-vue-select.min.js",
@@ -125,6 +125,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/stfalcon-studio/stf-vue-select"
+    "url": "https://github.com/akimov-anton/flexible-vue-select"
   }
 }
