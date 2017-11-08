@@ -1,4 +1,4 @@
-# stf vue select VUE2
+# flexible vue select VUE2
 
 > flexible vue select - most flexible and customized select
 
