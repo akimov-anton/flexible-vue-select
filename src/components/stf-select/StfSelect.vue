@@ -67,7 +67,8 @@ export default {
   },
 
   beforeDestroy() {
-    document.body.removeChild(this.__selectOptionsWrapEl);
+    let wrapper = this.$el.querySelector('.stf-select__inner-wrapper');
+    wrapper.removeChild(this.__selectOptionsWrapEl);
     window.removeEventListener('resize', this._runOnResize);
     window.removeEventListener('scroll', this._runOnScroll, true);
     window.removeEventListener('click', this._runOnWindowClick);
