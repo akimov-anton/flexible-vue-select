@@ -296,9 +296,11 @@ export default {
       window.addEventListener('scroll', this._runOnScroll, true);
     },
     _addOutClickListener() {
-      const vm = this;
-      this._runOnWindowClick = function(evt) {
-        vm._close();
+      this._runOnWindowClick = (evt) => {
+        if (this.isOpened) {
+          this._close();
+          this.$emit('blur');
+        }
       };
 
       window.addEventListener('click', this._runOnWindowClick);

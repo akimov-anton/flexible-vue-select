@@ -1,6 +1,6 @@
 {
   "name": "flexible-vue-select",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A Vue.js project",
   "author": "Anton Akimov",
   "main": "dist/lib/stf-vue-select.min.js",
