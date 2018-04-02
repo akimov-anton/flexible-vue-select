@@ -345,6 +345,10 @@ export default {
       eventHub.$emit('stf-select.opened', { idSelect: this.idSelect });
     },
     _close() {
+      if (this.isOpened) {
+        this.$emit('close');
+      }
+      
       this.isOpened = false;
       this._inputEl = this.$el.querySelector('input');
     },
