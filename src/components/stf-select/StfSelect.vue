@@ -12,7 +12,6 @@ export default {
 
     this._optionSelectedCallback = event => {
       if (event.selectId === this.idSelect) {
-        this._close();
         this.$emit('input', event.value);
         const searchInpitEl = this.$el.querySelector(
           '.stf-select__search-input'
@@ -22,9 +21,7 @@ export default {
         this._beforeSetValueFocus = false;
       }
 
-      if (event.selectId !== this.idSelect) {
-        this._close();
-      }
+      this._close();
     };
 
     this._onOptionMounted = event => {
